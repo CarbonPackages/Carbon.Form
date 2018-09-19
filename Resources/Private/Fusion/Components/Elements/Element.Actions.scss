@@ -1,0 +1,26 @@
+.form-actions {
+  position: relative;
+  display: flex;
+  margin-top: $form-margin-top;
+
+  // We want the cancel button on the right side,
+  // but have the submit button first in the markup
+  // This is because of the tabindex
+  .form-btn-cancel {
+    order: -1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: $form-border-color;
+    opacity: 0.3;
+  }
+
+  > * {
+    flex: 1;
+    margin-top: 0;
+  }
+}

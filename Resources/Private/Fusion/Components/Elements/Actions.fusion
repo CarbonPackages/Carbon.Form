@@ -1,0 +1,16 @@
+prototype(Carbon.FormComponent:Actions) < prototype(Neos.Fusion:Component) {
+    nooutline = false
+    content = null
+    submit = 'Send inquiry'
+    reset = 'Cancel'
+
+    @if.render = ${this.submit || this.reset || this.content}
+
+    renderer = afx`
+        <div class="form-actions">
+            <Carbon.FormComponent:Button @if.render={props.submit} type='submit' content={props.submit} />
+            <Carbon.FormComponent:Button @if.render={props.reset} type='reset' style={props.nooutline ? 'cancel-nooutline' : 'cancel'} content={props.reset} />
+            {props.content}
+        </div>
+    `
+}

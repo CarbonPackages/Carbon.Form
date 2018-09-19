@@ -1,0 +1,8 @@
+prototype(Carbon.FormComponent:Hint) < prototype(Neos.Fusion:Component) {
+    hint = null
+
+    @if.render = ${this.hint}
+    renderer = afx`
+        <small class='form-element-hint'>{props.hint}</small>
+    `
+}

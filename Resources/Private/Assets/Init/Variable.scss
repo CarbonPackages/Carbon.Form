@@ -1,0 +1,74 @@
+@function contrast-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000; // Lighter backgorund, return dark color
+  } @else {
+    @return #fff; // Darker background, return light color
+  }
+}
+
+$form-complete-border: true !default;
+$form-show-label-if-value: true !default;
+$form-place-hint-absolute: false !default;
+$form-line-start: center !default;
+$form-set-will-change: false !default;
+
+// Font Sizes
+$form-font-size: 1rem !default;
+
+$form-legend-font-size: $form-font-size * 1 !default;
+$form-legend-font-weight: 500 !default;
+$form-hint-font-size: $form-font-size * 0.6875 !default; // 11px
+$form-hint-gap: $form-hint-font-size * 1.5 !default;
+$form-hint-font-weight: 400 !default;
+
+$form-line-height: 1.5 !default; // 24px
+$form-height: $form-font-size * $form-line-height *
+  (if($form-complete-border, 2, 1)) !default;
+$form-textarea-height: $form-height * (if($form-complete-border, 3, 2));
+
+$form-legend-text-align: left !default;
+
+// Margin & Paddings
+$form-spacer: $form-font-size / 8 !default;
+$form-gap: $form-font-size * 1.5 !default;
+$form-legend-margin: 0 0 $form-spacer 0 !default;
+$form-hint-margin: $form-spacer 0 !default;
+$form-bar-height: 2px !default;
+$form-margin-top: $form-gap * 1.5 !default;
+$form-margin-bottom: $form-margin-top !default;
+$form-label-padding-left: $form-spacer * if($form-complete-border, 4, 1) !default;
+$form-hint-bottom: -$form-hint-gap !default;
+$form-padding: $form-spacer ($form-spacer * if($form-complete-border, 4, 1))
+  ($form-spacer / 2) !default;
+
+$form-label-transform: translateY(-100%) translateY(-0.5em) translateY(-2px)
+  translateX(-$form-label-padding-left) scale(0.9);
+
+// Colors
+$form-color: #333 !default;
+$form-border-color: #999 !default;
+$form-label-color: lighten($form-border-color, 5%) !default;
+$form-legend-color: $form-color !default;
+$form-active-color: darken($form-border-color, 10%) !default;
+$form-focus-color: #337ab7 !default;
+$form-focus-contrast-color: contrast-color($form-focus-color) !default;
+$form-label-focus-color: $form-focus-color !default;
+$form-error-color: #d9534f !default;
+$form-success-color: #259337 !default;
+$form-hint-color: $form-label-color !default;
+
+// Animation
+$form-transition-speed: 0.28s !default;
+
+// Checkbox & Radio
+$form-checkbox-radio-gap: $form-font-size / 2 !default;
+$form-checkbox-radio-inline-margin-right: $form-font-size !default;
+$form-checkbox-radio-legend-font-weight: $form-legend-font-weight !default;
+$form-checkbox-radio-legend-font-size: $form-legend-font-size !default;
+$form-checkbox-radio-legend-margin: $form-legend-margin !default;
+$form-checkbox-radio-legend-color: $form-legend-color !default;
+$form-checkbox-radio-label-left: $form-font-size * 1.5 !default;
+$form-checkbox-radio-color: $form-color !default;
+$form-checkbox-radio-focus-color: $form-focus-color !default;
+$form-checkbox-radio-size: $form-font-size !default;
+$form-checkbox-radio-border-color: $form-border-color !default;

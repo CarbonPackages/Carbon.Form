@@ -1,0 +1,20 @@
+prototype(Carbon.FormComponent:Card) < prototype(Neos.Fusion:Component) {
+    tagName = 'div'
+    attributes = Neos.Fusion:Attributes {
+        class = 'form-card'
+    }
+    content = null
+    actions = Neos.Fusion:RawArray {
+        submit = 'Send inquiry'
+        reset = 'Cancel'
+    }
+
+    renderer = Neos.Fusion:Tag {
+        tagName = ${props.tagName}
+        attributes = ${props.attributes}
+        content = afx`
+            {props.content}
+            <Carbon.FormComponent:Actions @if.hasActions={props.actions} nooutline={true} submit={props.actions.submit} reset={props.actions.reset} />
+        `
+    }
+}

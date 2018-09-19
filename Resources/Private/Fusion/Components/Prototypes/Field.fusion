@@ -1,0 +1,34 @@
+prototype(Carbon.FormComponent:Field) < prototype(Neos.Fusion:Component) {
+    id = null
+    field = null
+    label = null
+    element = null
+
+    hasError = false
+    hint = null
+    placeholder = null
+    value = null
+    name = null
+    required = false
+    disabled = false
+    readonly = false
+
+    @if.render = ${this.id && this.label && this.field}
+
+    renderer = Neos.Fusion:Component {
+        @if.render = ${this.element}
+        element = ${props.element}
+        nested = ${props}
+
+        renderer = afx`
+            <div class={'form-element form-' + props.nested.field + (props.nested.hasError ? ' form-has-error' : '')}>
+                <Neos.Fusion:Augmenter id={props.nested.id} name={props.nested.name} class={'form-element-field' + (props.nested.value ? ' -hasvalue' : '')} required={props.nested.required ? 'true' : false} disabled={props.nested.disabled ? 'true' : false} readonly={props.nested.readonly ? 'true' : false}>
+                    {props.element}
+                </Neos.Fusion:Augmenter>
+                <div class='form-element-bar'></div>
+                <label class='form-element-label' for={props.nested.id} @if.render={props.nested.label}>{props.nested.label}</label>
+                <Carbon.FormComponent:Hint hint={props.nested.hint} />
+            </div>
+        `
+    }
+}

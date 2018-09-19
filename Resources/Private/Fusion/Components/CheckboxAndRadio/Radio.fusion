@@ -1,0 +1,30 @@
+prototype(Carbon.FormComponent:Radio) < prototype(Neos.Fusion:Component) {
+    block = true
+    legend = null
+    name = null
+
+    hasError = false
+    hint = null
+    value = null
+    required = false
+    disabled = false
+    readonly = false
+
+    items = Neos.Fusion:RawArray
+
+    @if.render = ${this.name &&this.items && Type.isArray(this.items) && Array.length(this.items)}
+
+    renderer = afx`
+        <div class={'form-radio form-radio-' + (props.block ? 'block' : 'inline') + (props.hasError ? ' form-has-error' : '')}>
+            <div @if.render={props.legend} class='form-radio-legend'>{props.legend}</div>
+            <Neos.Fusion:Collection collection={props.items} @children='itemRenderer'>
+                <label class='form-radio-label'>
+                  <input name={props.name} value={itemKey} checked={!!(props.value == itemKey)} class='form-radio-field' type='radio' required={!!(props.required)} disabled={!!(props.disabled)} readonly={!!(props.readonly)} />
+                  <i class='form-radio-button'></i>
+                  <span>{item}</span>
+                </label>
+            </Neos.Fusion:Collection>
+            <Carbon.FormComponent:Hint hint={props.hint} />
+        </div>
+    `
+}

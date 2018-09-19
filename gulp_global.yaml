@@ -1,0 +1,23 @@
+info:
+  author: 'Jon Uhlmann'
+  homepage: 'https://github.com/CarbonPackages/Carbon.FormComponents'
+  package: 'Carbon.FormComponents'
+
+global:
+  mergeConfigFromPackages: false
+  notifications: true
+  browserSync:
+    enable: false
+
+root:
+  base: './'
+
+tasks:
+  scssLint: false
+  fonts: false
+  images: false
+  static: false
+  svgSprite: false
+  pipeline:
+    - js
+    - css

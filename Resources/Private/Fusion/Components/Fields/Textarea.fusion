@@ -1,0 +1,10 @@
+prototype(Carbon.FormComponent:Textarea) < prototype(Carbon.FormComponent:Field) {
+    field = 'textarea'
+    id = null
+    label = null
+
+
+    renderer.element = afx`
+        <textarea placeholder={props.placeholder || ' '}>{props.value}</textarea>
+    `
+}

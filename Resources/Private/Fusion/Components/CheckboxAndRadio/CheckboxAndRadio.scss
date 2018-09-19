@@ -1,0 +1,169 @@
+.form-checkbox,
+.form-radio {
+  position: relative;
+  margin-top: $form-margin-top;
+  margin-bottom: $form-margin-bottom;
+  text-align: left;
+}
+
+.form-checkbox-inline .form-checkbox-label,
+.form-radio-inline .form-radio-label {
+  display: inline-block;
+  margin-right: $form-checkbox-radio-inline-margin-right;
+}
+
+.form-checkbox-legend,
+.form-radio-legend {
+  margin: $form-checkbox-radio-legend-margin;
+  font-weight: $form-checkbox-radio-legend-font-weight;
+  font-size: $form-checkbox-radio-legend-font-size;
+  color: $form-checkbox-radio-legend-color;
+}
+
+.form-checkbox-label,
+.form-radio-label {
+  position: relative;
+  cursor: pointer;
+  padding-left: $form-checkbox-radio-label-left;
+  text-align: left;
+  color: $form-checkbox-radio-color;
+  display: block;
+  margin-bottom: $form-checkbox-radio-gap;
+
+  &:hover i {
+    color: $form-checkbox-radio-focus-color;
+  }
+
+  span {
+    display: block;
+  }
+
+  input {
+    width: auto;
+    opacity: 0.0001;
+    position: absolute;
+    left: $form-spacer * 2;
+    top: $form-spacer * 2;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.form-checkbox-button {
+  position: absolute;
+  user-select: none;
+  display: block;
+  color: $form-checkbox-radio-border-color;
+  left: 0;
+  top: $form-spacer * 2;
+  width: $form-checkbox-radio-size;
+  height: $form-checkbox-radio-size;
+  z-index: 0;
+  border: ($form-checkbox-radio-size / 8) solid currentColor;
+  border-radius: $form-checkbox-radio-size / 16;
+  transition: color $form-transition-speed ease;
+
+  @if ($form-set-will-change) {
+    will-change: color;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    height: 0;
+    width: $form-checkbox-radio-size * 0.2;
+    background-color: $form-checkbox-radio-focus-color;
+    display: block;
+    transform-origin: left top;
+    border-radius: $form-checkbox-radio-size / 4;
+    content: "";
+    transition: opacity $form-transition-speed ease, height 0s linear $form-transition-speed;
+    opacity: 0;
+
+    @if ($form-set-will-change) {
+      will-change: opacity, height;
+    }
+  }
+
+  &::before {
+    top: $form-checkbox-radio-size * 0.65;
+    left: $form-checkbox-radio-size * 0.38;
+    transform: rotate(-135deg);
+    box-shadow: 0 0 0 ($form-checkbox-radio-size / 16) #fff;
+  }
+
+  &::after {
+    top: $form-checkbox-radio-size * 0.3;
+    left: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+.form-checkbox-field:checked ~ .form-checkbox-button {
+  color: $form-checkbox-radio-focus-color;
+
+  &::after,
+  &::before {
+    opacity: 1;
+    transition: height $form-transition-speed ease;
+  }
+
+  &::after {
+    height: $form-checkbox-radio-size / 2;
+  }
+
+  &::before {
+    height: $form-checkbox-radio-size * 1.2;
+    transition-delay: $form-transition-speed;
+  }
+}
+
+.form-radio-button {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  display: block;
+  user-select: none;
+  color: $form-checkbox-radio-border-color;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: $form-spacer * 2;
+    width: $form-checkbox-radio-size;
+    height: $form-checkbox-radio-size;
+    transition: transform $form-transition-speed ease, color $form-transition-speed ease;
+    border-radius: 50%;
+    border: ($form-checkbox-radio-size / 8) solid currentColor;
+
+    @if ($form-set-will-change) {
+      will-change: transform, color;
+    }
+  }
+
+  &::after {
+    transform: scale(0);
+    background-color: $form-checkbox-radio-focus-color;
+    border-color: $form-checkbox-radio-focus-color;
+  }
+}
+
+.form-radio-field:checked ~ .form-radio-button {
+  &::after {
+    transform: scale(0.5);
+  }
+
+  &::before {
+    color: $form-checkbox-radio-focus-color;
+  }
+}
+
+.form-has-error {
+  .form-checkbox-button,
+  .form-radio-button {
+    color: $form-error-color;
+  }
+}

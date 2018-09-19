@@ -1,0 +1,12 @@
+prototype(Carbon.FormComponent:Fieldset) < prototype(Neos.Fusion:Component) {
+    legend = null
+
+    @if.render = ${this.content}
+
+    renderer = afx`
+        <fieldset class='form-fieldset'>
+            <legend @if.legend={props.legend} class='form-legend'>{props.legend}</legend>
+            {props.content}
+        </fieldset>
+    `
+}
