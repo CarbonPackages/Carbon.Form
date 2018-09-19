@@ -9,5 +9,10 @@
 
 ## Installation
 
-`Carbon.FormComponents` is available via packagist. Add `"carbon/formcomponents" : "^1.0"`
-to the require section of your composer.json or run `composer require carbon/formcomponents`.
+The package is currently not registered at packagist so you have to install it manually:
+
+```bash
+cd <YOUR_NEOS_PROJECT_ROOT>
+composer config repositories.Carbon.FormComponents vcs https://github.com/CarbonPackages/Carbon.FormComponents
+composer require "carbon/formcomponents:@dev"
+```
