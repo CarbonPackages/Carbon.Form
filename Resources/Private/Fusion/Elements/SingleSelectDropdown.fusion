@@ -1,0 +1,40 @@
+prototype(Carbon.Form:SingleSelectDropdown) < prototype(Carbon.Form:FormElement) {
+    fieldName = 'select'
+    field {
+        tagName = 'select'
+        attributes {
+            name = ${name}
+            placeholder = false
+        }
+        content = Neos.Fusion:Array {
+            prependOptionLabel = Neos.Fusion:Tag {
+                @if.render = true
+                @if.render.@process {
+                    hasPrependLabel = ${element.properties.prependOptionLabel != null}
+                    hasPlaceholder = ${value || element.properties.placeholder}
+                    firstEmpty = ${value || element.properties.firstEmpty}
+                    noValue = ${elementValue ? false : value}
+                }
+                tagName = 'option'
+                attributes {
+                    disabled = true
+                    selected = true
+                    value = ''
+                    class = 'form-select-placeholder'
+                }
+                content = ${element.properties.placeholder || element.properties.prependOptionLabel}
+            }
+            options = Neos.Form.FusionRenderer:SelectOptions {
+                itemRenderer = Neos.Fusion:Tag {
+                    tagName = 'option'
+                    attributes {
+                        value = ${optionValue}
+                        selected = ${optionSelected}
+                    }
+                    content = ${optionLabel}
+                }
+            }
+        }
+    }
+}
+

@@ -2,4 +2,14 @@ Neos:
   Neos:
     fusion:
       autoInclude:
-        Carbon.FormComponents: true
+        Carbon.Form: true
+
+Carbon:
+  IncludeAssets:
+    Packages:
+      Carbon.Form:
+        Package: Carbon.Form
+        # ConditionPrototype: 'GesagtGetan.Form:IncludeCase'
+        General:
+          Head:
+            - Main.js[defer]

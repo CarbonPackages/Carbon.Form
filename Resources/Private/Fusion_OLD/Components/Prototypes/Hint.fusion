@@ -1,0 +1,23 @@
+prototype(Carbon.FormComponent:Hint) < prototype(Neos.Fusion:Component) {
+    hint = null
+    validationErrors = null
+
+    renderer = Neos.Fusion:Case {
+        hasValidationErrors {
+            condition = ${Type.isArray(props.validationErrors) && !Array.isEmpty(props.validationErrors)}
+            renderer = afx`
+                <Neos.Fusion:Collection collection={props.validationErrors} itemName="error" @children="itemRenderer">
+                    <small class='form-element-hint'>
+                        {Translation.translate(error.code, null, error.arguments, 'ValidationErrors', 'Neos.Flow')}
+                    </small>
+                </Neos.Fusion:Collection>
+            `
+        }
+        hasHint {
+            condition = ${props.hint}
+            renderer = afx`
+                <small class='form-element-hint'>{props.hint}</small>
+            `
+        }
+    }
+}

@@ -1,0 +1,10 @@
+prototype(Carbon.Form:DatePicker) < prototype(Carbon.Form:FormElement) {
+    fieldName = 'input'
+    field {
+        tagName = 'input'
+        attributes {
+            type = 'date'
+            value = ${elementValue}
+        }
+    }
+}

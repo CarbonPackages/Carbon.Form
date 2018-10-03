@@ -1,0 +1,7 @@
+prototype(Carbon.Form:MultiLineText) < prototype(Carbon.Form:FormElement) {
+    fieldName = 'textarea'
+    field {
+        tagName = 'textarea'
+        content = ${elementValue}
+    }
+}

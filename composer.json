@@ -1,39 +1,50 @@
 {
-    "name": "carbon/formcomponents",
-    "type": "neos-carbon",
-    "description": "Form components for Neos.io",
-    "license": "MIT",
-    "keywords": ["flow", "neos", "fusion", "components", "form", "carbon"],
-    "require": {
-        "neos/neos": "~3.3 || ~4.0"
-    },
-    "authors": [
-        {
-            "name": "Jon Uhlmann",
-            "email": "me@jonnitto.ch",
-            "homepage": "https://jonnitto.ch",
-            "role": "Developer"
-        }
-    ],
-    "archive": {
-        "exclude": [
-            ".editorconfig",
-            ".gitattributes",
-            ".github",
-            ".gitignore",
-            "CODE_OF_CONDUCT.md"
-        ]
-    },
-    "autoload": {
-        "psr-4": {
-            "Carbon\\FormComponents\\": "Classes"
-        }
-    },
-    "extra": {
-        "marketplace-account": "me@jonnitto.ch",
-        "installer-name": "Carbon.FormComponents",
-        "neos": {
-            "package-key": "Carbon.FormComponents"
-        }
+  "name": "carbon/form",
+  "type": "neos-carbon",
+  "description": "Form components for Neos.io",
+  "license": "MIT",
+  "keywords": [
+    "flow",
+    "neos",
+    "fusion",
+    "components",
+    "form",
+    "carbon"
+  ],
+  "require": {
+    "neos/neos": "~3.3 || ~4.0",
+    "neos/form": "*",
+    "neos/form-builder": "*",
+    "neos/form-fusionrenderer": "*",
+    "carbon/includeassets": "^3.2"
+  },
+  "authors": [
+    {
+      "name": "Jon Uhlmann",
+      "email": "me@jonnitto.ch",
+      "homepage": "https://jonnitto.ch",
+      "role": "Developer"
     }
+  ],
+  "archive": {
+    "exclude": [
+      ".editorconfig",
+      ".gitattributes",
+      ".github",
+      ".gitignore",
+      "CODE_OF_CONDUCT.md"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "Carbon\\Form\\": "Classes"
+    }
+  },
+  "extra": {
+    "marketplace-account": "me@jonnitto.ch",
+    "installer-name": "Carbon.Form",
+    "neos": {
+      "package-key": "Carbon.Form"
+    }
+  }
 }

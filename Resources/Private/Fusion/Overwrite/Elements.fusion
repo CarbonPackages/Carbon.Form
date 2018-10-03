@@ -1,0 +1,12 @@
+prototype(Neos.Form:SingleLineText) < prototype(Carbon.Form:SingleLineText)
+prototype(Neos.Form:MultiLineText) < prototype(Carbon.Form:MultiLineText)
+prototype(Neos.Form:Password) < prototype(Carbon.Form:Password)
+prototype(Neos.Form:PasswordWithConfirmation) < prototype(Carbon.Form:PasswordWithConfirmation)
+
+prototype(Neos.Form:Checkbox) < prototype(Carbon.Form:Checkbox)
+prototype(Neos.Form:SingleSelectDropdown) < prototype(Carbon.Form:SingleSelectDropdown)
+prototype(Neos.Form:SingleSelectRadiobuttons) < prototype(Carbon.Form:SingleSelectRadiobuttons)
+prototype(Neos.Form:MultipleSelectCheckboxes) < prototype(Carbon.Form:MultipleSelectCheckboxes)
+prototype(Neos.Form:DatePicker) < prototype(Carbon.Form:DatePicker)
+prototype(Neos.Form:HiddenField) < prototype(Carbon.Form:HiddenField)
+prototype(Neos.Form:StaticText) < prototype(Carbon.Form:StaticText)

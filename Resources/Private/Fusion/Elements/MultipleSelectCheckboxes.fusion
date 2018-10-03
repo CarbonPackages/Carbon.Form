@@ -1,0 +1,28 @@
+prototype(Carbon.Form:MultipleSelectCheckboxes) < prototype(Carbon.Form:Component.FormElement) {
+    class {
+        default = 'form-checkbox'
+        style = ${'form-checkbox-' + element.properties.arrangement}
+    }
+
+    checkboxClass = Neos.Fusion:RawArray {
+        default = 'form-checkbox-field'
+         attribute = ${element.properties.elementClassAttribute}
+    }
+
+    label = ${element.properties.label}
+
+    renderer = afx`
+        <div class={props.class}>
+            <div class="form-checkbox-legend" @if.render={props.label}>{props.label}</div>
+            <Neos.Form.FusionRenderer:SelectOptions @children='itemRenderer'>
+                <label class='form-checkbox-label'>
+                    <input type='checkbox' class={props.checkboxClass} name={name + '[]'} value={optionValue} checked={optionSelected} required={props.required ? 'true' : false} disabled={props.disabled ? 'true' : false} readonly={props.readonly ? 'true' : false} />
+                    <i class="form-checkbox-button"></i>
+                    <span>{optionLabel}</span>
+                </label>
+            </Neos.Form.FusionRenderer:SelectOptions>
+            <Carbon.Form:FormElementValidationErrors />
+            <Carbon.Form:FormElementDescription />
+        </div>
+    `
+}

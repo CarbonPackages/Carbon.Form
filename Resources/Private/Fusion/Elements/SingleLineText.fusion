@@ -1,0 +1,10 @@
+prototype(Carbon.Form:SingleLineText) < prototype(Carbon.Form:FormElement) {
+    fieldName = 'input'
+    field {
+        tagName = 'input'
+        attributes {
+            type = ${element.properties.type || 'text'}
+            value = ${elementValue}
+        }
+    }
+}

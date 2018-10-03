@@ -1,0 +1,19 @@
+prototype(Carbon.FormComponent:Button) < prototype(Neos.Fusion:Component) {
+    // 'submit' || 'button'
+    type = 'submit'
+
+    // null || 'cancel' || 'cancel-nooutline' || 'error'
+    style = ${this.type == 'reset' ? 'cancel' : null}
+
+    content = null
+    class = null
+    id = null
+    name = null
+    value = null
+
+    renderer = afx`
+        <button type={props.type} id={props.id} name={props.name} value={props.value} class={'form-btn' + (props.style ? '-' + props.style : '') + (props.class ? ' ' + props.class : '')}>
+            {props.content}
+        </button>
+    `
+}

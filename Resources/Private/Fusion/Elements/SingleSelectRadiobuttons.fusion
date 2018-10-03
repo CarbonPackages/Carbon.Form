@@ -1,0 +1,28 @@
+prototype(Carbon.Form:SingleSelectRadiobuttons) < prototype(Carbon.Form:Component.FormElement) {
+    class {
+        default = 'form-radio'
+        style = ${'form-radio-' + element.properties.arrangement}
+    }
+
+    radioClass = Neos.Fusion:RawArray {
+        default = 'form-radio-field'
+         attribute = ${element.properties.elementClassAttribute}
+    }
+
+    label = ${element.properties.label}
+
+    renderer = afx`
+        <div class={props.class}>
+            <div class="form-radio-legend" @if.render={props.label}>{props.label}</div>
+            <Neos.Form.FusionRenderer:SelectOptions @children='itemRenderer'>
+                <label class='form-radio-label'>
+                    <input type='radio' class={props.radioClass} name={name} value={optionValue} checked={optionSelected} required={props.required ? 'true' : false} disabled={props.disabled ? 'true' : false} readonly={props.readonly ? 'true' : false} />
+                    <i class="form-radio-button"></i>
+                    <span>{optionLabel}</span>
+                </label>
+            </Neos.Form.FusionRenderer:SelectOptions>
+            <Carbon.Form:FormElementValidationErrors />
+            <Carbon.Form:FormElementDescription />
+        </div>
+    `
+}

@@ -1,0 +1,64 @@
+prototype(Carbon.Form:FormElement) < prototype(Carbon.Form:Component.FormElement) {
+    class {
+        default = 'form-element'
+        style = ${'form-' + fieldName}
+    }
+
+    renderer = afx`
+        <div class={props.class}>
+            <Neos.Fusion:Augmenter class={'form-element-field' + (elementValue ? ' -hasvalue' : '')} required={props.required ? 'true' : false} disabled={props.disabled ? 'true' : false} readonly={props.readonly ? 'true' : false}>
+                {props.field}
+            </Neos.Fusion:Augmenter>
+            <div class='form-element-bar'></div>
+            {props.label}
+            <Carbon.Form:FormElementValidationErrors />
+            <Carbon.Form:FormElementDescription />
+        </div>
+    `
+}
+
+prototype(Carbon.Form:FormElementLabel) < prototype(Neos.Fusion:Component) {
+    for = ${element.uniqueIdentifier}
+    label = ${Neos.Form.translateAndEscapeProperty(element, 'label')}
+
+    tagName = 'label'
+    class = 'form-element-label'
+
+    @if.render = ${this.label}
+
+    renderer = Neos.Fusion:Case {
+        withTag {
+            condition = ${props.tagName}
+            renderer = Neos.Fusion:Tag {
+                tagName = ${props.tagName}
+                attributes {
+                    for = ${props.for && props.tagName == 'label' ? props.for : false}
+                    class = ${props.class}
+                }
+                content = ${props.label}
+            }
+        }
+        noTag {
+            condition = true
+            renderer = ${props.label}
+        }
+    }
+}
+
+prototype(Carbon.Form:FormElementField) < prototype(Neos.Fusion:Tag) {
+    attributes {
+        id = ${element.uniqueIdentifier}
+        name = ${name}
+        placeholder = ${element.properties.placeholder || ' '}
+    }
+}
+
+prototype(Carbon.Form:FormElementValidationErrors) < prototype(Carbon.FormComponent:Hint) {
+    validationErrors = ${validationErrors}
+    translationPackage = ${element.renderingOptions.validationErrorTranslationPackage}
+}
+
+prototype(Carbon.Form:FormElementDescription) < prototype(Carbon.FormComponent:Hint) {
+    hint = ${element.properties.elementDescription}
+    @if.condition = ${element.properties.elementDescription ? true : false}
+}

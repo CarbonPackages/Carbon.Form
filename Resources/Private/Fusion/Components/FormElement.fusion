@@ -1,0 +1,28 @@
+prototype(Carbon.Form:Component.FormElement) < prototype(Neos.Fusion:Component) {
+    @context {
+        name = ${'--' + formRuntime.identifier + '[' + element.identifier + ']'}
+        elementValue = ${Neos.Form.elementValue(formRuntime, element)}
+        validationErrors = ${Neos.Form.validationErrors(formRuntime, element)}
+        hasValidationErrors = ${Neos.Form.hasValidationErrors(formRuntime, element)}
+        fieldName = ${this.fieldName}
+    }
+
+    label = Carbon.Form:FormElementLabel
+    field = Carbon.Form:FormElementField
+    class = Neos.Fusion:RawArray {
+        default = false
+        style = false
+        error = ${hasValidationErrors ? 'form-has-error' : false}
+        containerClass = ${element.properties.containerClassAttribute}
+    }
+
+    fieldName = null
+    required = ${element.properties.required}
+    readonly = ${element.properties.readonly}
+    disabled = ${element.properties.disabled}
+
+    @process.renderCallbacks = Neos.Form.FusionRenderer:RenderCallbacks {
+        formRuntime = ${formRuntime}
+        formElement = ${element}
+    }
+}

@@ -1,0 +1,124 @@
+'Carbon.Form:Mixin.Arrangement':
+  abstract: true
+  properties:
+    arrangement:
+      type: string
+      defaultValue: block
+      ui:
+        label: Anordnung
+        reloadIfChanged: true
+        inspector:
+          group: 'formElement'
+          position: 10
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              block:
+                label: Block
+                icon: 'fas fa-ellipsis-v'
+              inline:
+                label: Inline
+                icon: 'fas fa-ellipsis-h'
+
+
+      type: boolean
+      ui:
+        label: FirstEmpty
+        reloadIfChanged: true
+        inspector:
+          group: 'formElement'
+
+'Carbon.Form:Mixin.FirstEmpty':
+  abstract: true
+  properties:
+    firstEmpty:
+      type: boolean
+      ui:
+        label: FirstEmpty
+        reloadIfChanged: true
+        inspector:
+          group: 'formElement'
+
+'Carbon.Form:Mixin.Readonly':
+  abstract: true
+  properties:
+    readonly:
+      type: boolean
+      ui:
+        label: Readonly
+        reloadIfChanged: true
+        inspector:
+          group: 'formElement'
+
+'Carbon.Form:Mixin.Disabled':
+  abstract: true
+  properties:
+    disabled:
+      type: boolean
+      ui:
+        label: Disabled
+        reloadIfChanged: true
+        inspector:
+          group: 'formElement'
+
+'Carbon.Form:Mixin.Type':
+  abstract: true
+  properties:
+    type:
+      type: string
+      defaultValue: text
+      ui:
+        label: Typ
+        reloadIfChanged: true
+        inspector:
+          group: 'formElement'
+          position: 10
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              text:
+                label: Text
+                icon: 'fas fa-font'
+              number:
+                label: Number
+                icon: 'fas fa-sort-numeric-down'
+              range:
+                label: Range
+                icon: 'fas fa-sort-numeric-down'
+              email:
+                label: E-Mail
+                icon: 'fas fa-envelope'
+              url:
+                label: URL
+                icon: 'fas fa-link'
+              tel:
+                label: Phone
+                icon: 'fas fa-phone'
+              date:
+                label: Date
+                icon: 'fas fa-calendar'
+              datetime-local:
+                label: datetime-local
+                icon: 'fas fa-calendar'
+              month:
+                label: month
+                icon: 'fas fa-calendar'
+              time:
+                label: time
+                icon: 'fas fa-clock'
+              week:
+                label: week
+                icon: 'fas fa-calendar'
+              password:
+                label: Password
+                icon: 'fas fa-asterisk'
+              color:
+                label: Color
+                icon: 'fas fa-palette'
+              search:
+                label: Search
+                icon: 'fas fa-search'
+
+
+
+

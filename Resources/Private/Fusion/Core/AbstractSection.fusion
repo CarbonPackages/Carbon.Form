@@ -1,0 +1,18 @@
+prototype(Carbon.Form:AbstractSection) < prototype(Neos.Fusion:Component) {
+    @context.containerElement = ${this.containerElement}
+
+    renderer = afx`
+        <fieldset class={'form-fieldset' + (containerElement.properties.elementClassAttribute ? ' ' + containerElement.properties.elementClassAttribute : '')}>
+            <legend @if.hasLabel={!!containerElement.label} class="form-legend">{Neos.Form.translateAndEscapeProperty(containerElement, 'label')}</legend>
+            <Neos.Fusion:Collection collection={containerElement.elements} itemName='element' @children='itemRenderer'>
+                <Neos.Fusion:Renderer type={element.type} />
+            </Neos.Fusion:Collection>
+        </fieldset>
+    `
+
+    @process.renderCallbacks = Neos.Form.FusionRenderer:RenderCallbacks {
+        formRuntime = ${formRuntime}
+        formElement = ${containerElement}
+    }
+}
+

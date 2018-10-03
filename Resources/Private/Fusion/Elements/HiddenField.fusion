@@ -1,0 +1,13 @@
+prototype(Carbon.Form:HiddenField) < prototype(Carbon.Form:Component.FormElement) {
+    field {
+        tagName = 'input'
+        attributes {
+            type = 'hidden'
+            name = ${name}
+            value = ${elementValue}
+            placeholder = false
+        }
+    }
+    renderer = ${props.field}
+}
+

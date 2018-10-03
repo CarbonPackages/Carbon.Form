@@ -1,0 +1,8 @@
+prototype(Carbon.FormComponent:SingleSelectDropdown.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
+    formElementType = 'Carbon.FormComponent:Select'
+
+    properties {
+        prependOptionLabel = null
+        options = Neos.Fusion:RawArray
+    }
+}

@@ -1,0 +1,40 @@
+'Neos.Form.Builder:SingleLineText':
+  superTypes:
+    'Carbon.Form:Mixin.Type': true
+    'Carbon.Form:Mixin.Readonly': true
+    'Carbon.Form:Mixin.Disabled': true
+
+'Neos.Form.Builder:SingleSelectDropdown':
+  superTypes:
+    'Carbon.Form:Mixin.Readonly': true
+    'Carbon.Form:Mixin.Disabled': true
+    'Carbon.Form:Mixin.FirstEmpty': true
+    'Neos.Form.Builder:PlaceholderMixin': true
+
+'Neos.Form.Builder:MultipleSelectCheckboxes':
+  superTypes:
+    'Carbon.Form:Mixin.Arrangement': true
+
+'Neos.Form.Builder:SingleSelectRadiobuttons':
+  superTypes:
+    'Carbon.Form:Mixin.Arrangement': true
+
+'Neos.Form.Builder:LabelMixin':
+  properties:
+    label:
+      options:
+        showInCreationDialog: true
+      defaultValue: ''
+
+'Neos.Form.Builder:IdentifierMixin':
+  properties:
+    identifier:
+      options:
+        showInCreationDialog: true
+      ui:
+        label: ID
+
+'Neos.Form.Builder:HiddenField':
+  superTypes:
+    'Neos.Form.Builder:LabelMixin': false
+    'Neos.Form.Builder:RequiredCheckboxMixin': false

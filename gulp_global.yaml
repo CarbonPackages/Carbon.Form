@@ -1,7 +1,7 @@
 info:
-  author: 'Jon Uhlmann'
-  homepage: 'https://github.com/CarbonPackages/Carbon.FormComponents'
-  package: 'Carbon.FormComponents'
+  author: "Jon Uhlmann"
+  homepage: "https://github.com/CarbonPackages/Carbon.Form"
+  package: "Carbon.Form"
 
 global:
   mergeConfigFromPackages: false
@@ -10,10 +10,9 @@ global:
     enable: false
 
 root:
-  base: './'
+  base: "./"
 
 tasks:
-  scssLint: false
   fonts: false
   images: false
   static: false

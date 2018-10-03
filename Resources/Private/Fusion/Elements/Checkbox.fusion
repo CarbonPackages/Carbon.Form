@@ -1,0 +1,31 @@
+prototype(Carbon.Form:Checkbox) < prototype(Carbon.Form:Component.FormElement) {
+    field {
+        tagName = 'input'
+        attributes {
+            type = 'checkbox'
+            name = ${name}
+            value = ${element.properties.value}
+            checked = ${elementValue ? true : false}
+            placeholder = false
+            class = 'form-checkbox-field'
+        }
+    }
+
+    class {
+        default = 'form-checkbox'
+        style = 'form-checkbox-block'
+    }
+
+    renderer = afx`
+        <div class={props.class}>
+            <label class="form-checkbox-label">
+                {props.field}
+                <i class="form-checkbox-button"></i>
+                <Carbon.Form:FormElementLabel tagName='span' class={false} />
+            </label>
+            <Carbon.Form:FormElementValidationErrors />
+            <Carbon.Form:FormElementDescription />
+        </div>
+    `
+}
+

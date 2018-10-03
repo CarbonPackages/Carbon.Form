@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" 
+    xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="GesagtGetan.Form" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="previousButtonLabel" xml:space="preserve">
+                <source>Zurück</source>
+            </trans-unit>
+            <trans-unit id="nextButtonLabel" xml:space="preserve">
+                <source>Weiter</source>
+            </trans-unit>
+            <trans-unit id="submitButtonLabel" xml:space="preserve">
+                <source>Absenden</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

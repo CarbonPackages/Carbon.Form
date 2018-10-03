@@ -1,0 +1,16 @@
+prototype(Carbon.Form:StaticText) < prototype(Neos.Fusion:Component) {
+    tagName = 'h2'
+
+    renderer = afx`
+        <div class='form-static'>
+            <Neos.Fusion:Tag @if.hasLabel={element.properties.label} tagName={props.tagName} content={element.properties.label} />
+            <p @if.hasText={element.properties.text}>{Carbon.String.nl2br(element.properties.text)}</p>
+        </div>
+    `
+
+    @process.renderCallbacks = Neos.Form.FusionRenderer:RenderCallbacks {
+        formRuntime = ${formRuntime}
+        formElement = ${element}
+    }
+}
+

@@ -1,0 +1,22 @@
+.form-fieldset {
+  padding: 30px x;
+  border: 0;
+
+  + .form-fieldset {
+    margin-top: 15px;
+  }
+}
+
+.form-legend {
+  padding: 1em 0 0;
+  margin: 0 0 -0.5em;
+  font-size: 1.5rem;
+
+  @if $form-legend-text-align != "left" {
+    text-align: $form-legend-text-align;
+  }
+
+  + p {
+    margin-top: 1rem;
+  }
+}

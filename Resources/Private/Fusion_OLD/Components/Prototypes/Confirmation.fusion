@@ -1,0 +1,8 @@
+prototype(Carbon.FormComponent:Confirmation) < prototype(Neos.Fusion:Component) {
+    formValues = Neos.Fusion:RawArray
+
+    renderer = afx`
+        title: {String.htmlSpecialChars(props.formValues.title)}<br />
+        given name: {String.htmlSpecialChars(props.formValues.givenName)}<br />
+    `
+}
