@@ -1,3 +1,0 @@
-prototype(Carbon.FormComponent:SingleLineText.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
-    formElementType = 'Carbon.FormComponent:Input'
-}

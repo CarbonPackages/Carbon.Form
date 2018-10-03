@@ -1,3 +1,0 @@
-prototype(Carbon.FormComponent:Finisher.EmailFinisher.Definition) < prototype(Neos.Form.Builder:Finisher.Definition) {
-    formElementType = 'Carbon.FormComponent:Finisher.Email'
-}

@@ -1,7 +1,0 @@
-prototype(Carbon.FormComponent:Definition) < prototype(Neos.Form.Builder:Form) {
-    presetName = 'carbon'
-    formElementType = 'Carbon.FormComponent:Form'
-    firstPage {
-        formElementType = 'Carbon.FormComponent:Form.Page'
-    }
-}

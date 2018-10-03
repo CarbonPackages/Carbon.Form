@@ -1,3 +1,0 @@
-prototype(Carbon.FormComponent:Finisher.FusionFinisher.Definition) < prototype(Neos.Form.Builder:Finisher.Definition) {
-    formElementType = 'Carbon.FormComponent:Finisher.Fusion'
-}
